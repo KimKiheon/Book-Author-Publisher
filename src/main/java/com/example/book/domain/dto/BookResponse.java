@@ -17,7 +17,7 @@ public class BookResponse {
     public static BookResponse of(Book book, String authorName){
         return BookResponse.builder()
                 .bookId(book.getId())
-                .bookName(book.getName())
+                .bookName(book.getBookName())
                 .authorName(authorName)
                 .build();
     }
