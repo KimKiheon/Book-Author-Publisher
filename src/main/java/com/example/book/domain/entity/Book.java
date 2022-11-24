@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 public class Book {
     @Id
     private Integer id;
+    @Column(name = "name")
     private String bookName;
     private int authorId;
 }

@@ -14,9 +14,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/books")
-public class BookController {
+public class BookRestController {
     BookService bookService;
-    public BookController(BookService bookService){
+    public BookRestController(BookService bookService){
         this.bookService=bookService;
     }
     @GetMapping("")
