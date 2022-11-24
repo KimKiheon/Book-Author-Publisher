@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 public class BookResponse {
     private Integer bookId;
     private String bookName;
-    private String Name;
-    public static BookResponse of(Book book, String name){
+    private String authorName;
+    public static BookResponse of(Book book){
         return BookResponse.builder()
                 .bookId(book.getId())
                 .bookName(book.getName())
-                .Name(name)
+                .authorName(book.getAuthor().getName())
                 .build();
     }
 }
