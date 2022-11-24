@@ -16,6 +16,5 @@ import javax.persistence.Id;
 public class Author {
     @Id
     private Integer id;
-    @Column(name = "name")
-    private String authorName;
+    private String name;
 }
