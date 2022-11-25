@@ -1,7 +1,7 @@
 package com.example.book.service;
 
-import com.example.book.domain.dto.ReviewCreateRequest;
-import com.example.book.domain.dto.ReviewCreateResponse;
+import com.example.book.domain.dto.ReviewRequest;
+import com.example.book.domain.dto.ReviewResponse;
 import com.example.book.domain.entity.Hospital;
 import com.example.book.domain.entity.Review;
 import com.example.book.repository.HospitalRepository;
@@ -19,7 +19,7 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
         this.hospitalRepository = hospitalRepository;
     }
-    public ReviewCreateResponse add(ReviewCreateRequest reviewCreateRequest){
+    public ReviewResponse add(ReviewRequest reviewCreateRequest){
         Optional<Hospital> hospital = hospitalRepository.findById(reviewCreateRequest.getHospitalId());
         Review review = Review.builder()
                 .title(reviewCreateRequest.getTitle())
@@ -28,6 +28,6 @@ public class ReviewService {
                 .hospital(hospital.get())
                 .build();
         Review savedReview = reviewRepository.save(review);
-        return new ReviewCreateResponse(savedReview.getId(), savedReview.getTitle(), savedReview.getContent(), savedReview.getUserName(), "리뷰 등록");
+        return new ReviewResponse(savedReview.getId(), savedReview.getTitle(), savedReview.getContent(), savedReview.getUserName(), "리뷰 등록");
     }
 }
