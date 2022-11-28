@@ -22,4 +22,10 @@ public class HospitalController {
         ReviewResponse reviewResponse = reviewService.add(reviewRequest);
         return ResponseEntity.ok().body(reviewResponse);
     }
+
+    @GetMapping("/reviews/{id}")
+    public ResponseEntity<ReviewResponse> findByIdReview(@PathVariable Long id){
+        ReviewResponse reviewResponse = reviewService.get(id);
+        return ResponseEntity.ok().body(reviewResponse);
+    }
 }
