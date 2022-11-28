@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class ReviewRequest {
-    private Integer hospitalId;
+    private Long hospitalId;
     private String title;
     private String content;
     private String userName;
