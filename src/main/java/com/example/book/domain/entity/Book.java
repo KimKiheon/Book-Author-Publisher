@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Book {
     @Id
     private Integer id;
-    private String name;
+    private String bookName;
 
     @ManyToOne
     @JoinColumn(name = "author_id")

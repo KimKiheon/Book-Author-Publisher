@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
@@ -16,5 +15,5 @@ import javax.persistence.Id;
 public class Author {
     @Id
     private Integer id;
-    private String name;
+    private String authorName;
 }

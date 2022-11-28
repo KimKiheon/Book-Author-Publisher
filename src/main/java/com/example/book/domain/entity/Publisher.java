@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Entity
 @NoArgsConstructor
@@ -16,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Publisher {
     @Id
     private Long id;
-    public String name;
+    public String publisherName;
     public String address;
 
 }

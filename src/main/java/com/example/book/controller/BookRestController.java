@@ -16,15 +16,18 @@ import java.util.List;
 @RequestMapping("/api/v1/books")
 public class BookRestController {
     BookService bookService;
-    public BookRestController(BookService bookService){
-        this.bookService=bookService;
+
+    public BookRestController(BookService bookService) {
+        this.bookService = bookService;
     }
+
     @GetMapping("")
-    public ResponseEntity<List<BookResponse>> list(Pageable pageable){
+    public ResponseEntity<List<BookResponse>> list(Pageable pageable) {
         return ResponseEntity.ok().body(bookService.findBooks(pageable));
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Book> get(@PathVariable Integer id){
+    public ResponseEntity<Book> get(@PathVariable Integer id) {
         return ResponseEntity.ok().body(new Book());
     }
 }
