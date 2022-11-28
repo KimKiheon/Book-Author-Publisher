@@ -17,7 +17,7 @@ public class HospitalController {
         this.hospitalService = hospitalService;
     }
 
-    @PostMapping("/{id]/reviews/add")
+    @PostMapping("/{id}/reviews/add")
     public ResponseEntity<ReviewResponse> add(@PathVariable Long id, @RequestBody ReviewRequest reviewRequest){
         ReviewResponse reviewResponse = reviewService.add(reviewRequest);
         return ResponseEntity.ok().body(reviewResponse);
