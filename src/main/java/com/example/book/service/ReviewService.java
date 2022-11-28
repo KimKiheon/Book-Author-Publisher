@@ -8,7 +8,9 @@ import com.example.book.repository.HospitalRepository;
 import com.example.book.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ReviewService {
@@ -37,5 +39,13 @@ public class ReviewService {
         return new ReviewResponse(selectReview.getHospital().getHospitalName(), selectReview.getId(), selectReview.getUserName(),
                 selectReview.getTitle(), selectReview.getContent(), "1개 조회 완료");
 
+    }
+    public List<ReviewResponse> getHospitalReview(Long hospitalId){
+        Optional<Hospital> optionalHospital = hospitalRepository.findById(hospitalId);
+        List<Review> reviewList = optionalHospital.get().getReviews();
+        List<ReviewResponse> reviewResponses = reviewList.stream()
+                .map(review -> ReviewResponse.of(review))
+                .collect(Collectors.toList());
+        return reviewResponses;
     }
 }
