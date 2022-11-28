@@ -28,6 +28,14 @@ public class ReviewService {
                 .hospital(hospital.get())
                 .build();
         Review savedReview = reviewRepository.save(review);
-        return new ReviewResponse(savedReview.getId(), savedReview.getTitle(), savedReview.getContent(), savedReview.getUserName(), "리뷰 등록");
+        return new ReviewResponse(savedReview.getHospital().getHospitalName(), savedReview.getId(), savedReview.getTitle(), savedReview.getContent(), savedReview.getUserName(), "리뷰 등록");
+    }
+    public ReviewResponse get(Long reviewId) {
+        Optional<Review> optReview = reviewRepository.findById(reviewId);
+        Review selectReview = optReview.get();
+
+        return new ReviewResponse(selectReview.getHospital().getHospitalName(), selectReview.getId(), selectReview.getUserName(),
+                selectReview.getTitle(), selectReview.getContent(), "1개 조회 완료");
+
     }
 }
